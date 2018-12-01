@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Display
+comment0.text=\n\ handle\ displaying\ window\n\ \n\ @author\ Eric\ Boris\n\ @version\ 12/1/2018\n
+comment1.params=subject
+comment1.target=Display(Subject)
+comment1.text=\n\ construct\ a\ display\n\ \n\ @param\ \ \ subject\ \ \ \ \ \ \ \ \ the\ subject\ to\ register\ this\ display\ with\n\ @param\ \ \ dimension\ \ \ \ \ \ \ the\ displays\ dimensions\n
+comment2.params=
+comment2.target=void\ update()
+comment2.text=\n\ update\ the\ contents\ of\ the\ display\n
+comment3.params=
+comment3.target=java.awt.Dimension\ getPreferredSize()
+comment3.text=\n\ return\ the\ preffered\ size\ of\ the\ display\n\ \n\ @return\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ the\ preferred\ size\ of\ the\ display\n
+numComments=4

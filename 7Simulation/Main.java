@@ -6,6 +6,8 @@
  */
 public class Main {
     public static void main(String[] args) {
-        Settings settings = new Settings();
+        CallCenter callCenter = new CallCenter();
+        Settings settings = new Settings(callCenter);
+        Display display = new Display(callCenter);
     }
 }

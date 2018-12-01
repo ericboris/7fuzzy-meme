@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=CallCenter
+comment0.text=\n\ Generate\ call\ center\ data\n\n\ @author\ Eric\ Boris\n\ @version\ 12/1/2018\n
+comment1.params=
+comment1.target=CallCenter()
+comment2.params=
+comment2.target=void\ setData()
+comment3.params=observer
+comment3.target=void\ register(Observer)
+comment4.params=observer
+comment4.target=void\ remove(Observer)
+comment5.params=
+comment5.target=void\ notifyObservers()
+comment6.params=
+comment6.target=void\ getData()
+numComments=7

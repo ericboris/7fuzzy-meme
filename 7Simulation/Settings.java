@@ -18,6 +18,8 @@ import javax.swing.event.ChangeEvent;
  * @version 12/1/2018
  */
 public class Settings extends JPanel {
+    CallCenter callCenter;
+    
     private JLabel waitLabel;
     private JSlider waitSlider;
     private JLabel waitCurrent;
@@ -40,9 +42,14 @@ public class Settings extends JPanel {
     private static final int CALLS_INIT = CALLS_MAX / 2;
     private static final String SIM_LABEL = "Simulate!";    
 
-    private static final Dimension INIT_DIM = new Dimension(270, 600);
+    private static final Dimension INIT_DIM = new Dimension(270, 150);
 
-    public Settings(){
+    public Settings(CallCenter callCenter){
+        if (callCenter == null) {
+            throw new IllegalArgumentException("Argument must not be null");
+        }
+        this.callCenter = callCenter;
+        
         setLayout(new FlowLayout());
 
         // wait list settings
@@ -106,7 +113,7 @@ public class Settings extends JPanel {
     }
     
     private void update() {
-    
+        callCenter.setData();
     }
     
     /**
