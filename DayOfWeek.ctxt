@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=DayOfWeek
+comment0.text=\n\ The\ days\ of\ the\ week\n\n\ @author\ Eric\ Boris\n\ @version\ 12/1/2018\n
+comment1.params=dayNumber\ dayName
+comment1.target=DayOfWeek(int,\ java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ toString()
+comment3.params=dayNumber
+comment3.target=DayOfWeek\ byNumber(int)
+numComments=4

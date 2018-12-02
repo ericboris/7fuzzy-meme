@@ -5,12 +5,12 @@
  * @version 12/1/2018
  */
 public class Employee extends Person {
-    public void setData(String id, String firstName, String lastName, String userName, String schedule) {
+    public void setData(String id, String firstName, String lastName, String userName, int dayOff) {
         setId(id);
         setFirstName(firstName);
         setLastName(lastName);
         setUserName(userName);
-        setSchedule(schedule);
+        setSchedule(dayOff);
     }
     
     @Override
