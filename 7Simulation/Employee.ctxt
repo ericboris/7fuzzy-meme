@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=Employee
+comment0.text=\n\ Create\ an\ employee\n\n\ @author\ Eric\ Boris\n\ @version\ 12/1/2018\n
+comment1.params=id\ firstName\ lastName\ userName\ schedule
+comment1.target=void\ setData(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
+comment2.params=
+comment2.target=java.lang.String[]\ getData()
+numComments=3
