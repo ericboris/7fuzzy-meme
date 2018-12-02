@@ -19,7 +19,7 @@ import javax.swing.event.ChangeEvent;
  */
 public class Settings extends JPanel {
     CallCenter callCenter;
-    
+
     private JLabel waitLabel;
     private JSlider waitSlider;
     private JLabel waitCurrent;
@@ -29,27 +29,33 @@ public class Settings extends JPanel {
     private JLabel callsLabel;
     private JSlider callsSlider;
     private JLabel callsCurrent;
+    private JLabel techLabel;
+    private JSlider techSlider;
+    private JLabel techCurrent;
     private JButton simButton;
 
-    private static final String WAIT_LABEL = "Wait";
+    private static final String WAIT_LABEL = "Wait Queue";
     private static final int WAIT_MAX = 40;
     private static final int WAIT_INIT = WAIT_MAX / 2;
-    private static final String DELAY_LABEL = "Delay";
+    private static final String DELAY_LABEL = "Delay Amount";
     private static final int DELAY_MAX = 4;
     private static final int DELAY_INIT = DELAY_MAX / 2;
-    private static final String CALLS_LABEL = "Calls";
+    private static final String CALLS_LABEL = "Calls to Take";
     private static final int CALLS_MAX = 40;
     private static final int CALLS_INIT = CALLS_MAX / 2;
+    private static final String TECHS_LABEL = "Techs Queue";
+    private static final int TECHS_MAX = 40;
+    private static final int TECHS_INIT = TECHS_MAX / 2;
     private static final String SIM_LABEL = "Simulate!";    
 
-    private static final Dimension INIT_DIM = new Dimension(270, 150);
+    private static final Dimension INIT_DIM = new Dimension(310, 175);
 
     public Settings(CallCenter callCenter){
         if (callCenter == null) {
             throw new IllegalArgumentException("Argument must not be null");
         }
         this.callCenter = callCenter;
-        
+
         setLayout(new FlowLayout());
 
         // wait list settings
@@ -93,14 +99,28 @@ public class Settings extends JPanel {
         this.add(callsLabel);
         this.add(callsSlider);
         this.add(callsCurrent);
-        
+
+        // tech to make settings
+        techLabel = new JLabel(TECHS_LABEL, JLabel.CENTER);
+        techSlider = new JSlider(JSlider.HORIZONTAL, 0, TECHS_MAX, TECHS_INIT);
+        techSlider.addChangeListener(new ChangeListener() {
+                @Override
+                public void stateChanged(ChangeEvent e) {
+                    techCurrent.setText(String.valueOf(techSlider.getValue()));
+                }
+            });
+        techCurrent = new JLabel(String.valueOf(TECHS_INIT), JLabel.CENTER);
+        this.add(techLabel);
+        this.add(techSlider);
+        this.add(techCurrent);
+
         simButton = new JButton(SIM_LABEL);
         simButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                update();
-            }
-        });
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    update();
+                }
+            });
         this.add(simButton);
 
         // create a settings jframe and add the settings panel to it
@@ -111,11 +131,12 @@ public class Settings extends JPanel {
         sf.setVisible(true);
         sf.setResizable(false);
     }
-    
+
     private void update() {
-        callCenter.setData();
+        callCenter.setData(waitSlider.getValue(), delaySlider.getValue(), 
+                           callsSlider.getValue(), techSlider.getValue());
     }
-    
+
     /**
      * get the preferred window dimensions
      * 

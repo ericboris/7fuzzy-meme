@@ -16,6 +16,7 @@ public class Display extends JPanel implements Observer {
     
     private static final String TITLE = "Calls";
     private static final Dimension DIM = new Dimension(600, 400);
+    private static final int START_X = 310;
 
     /**
      * construct a display
@@ -36,7 +37,7 @@ public class Display extends JPanel implements Observer {
         df.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         df.getContentPane().add(this);
         df.pack();
-        df.setLocation(270, 0);
+        df.setLocation(START_X, 0);
         df.setVisible(true);
         df.setResizable(false);
     }

@@ -12,6 +12,12 @@ import java.io.IOException;
  */
 public class CallCenter implements Subject{
     private ArrayList<Person> people;
+    private ArrayList<Observer> observers;
+    
+    private int waitQueueSize;
+    private int delayAmount;
+    private int numCalls;
+    private int techQueueSize;
     
     public CallCenter(File file) {
         if (file == null) {
@@ -53,13 +59,29 @@ public class CallCenter implements Subject{
         }
     }
     
-    public void setData() {}
+    public void setData(int waitQueueSize, int delayAmount, int numCalls, int techQueueSize) {
+        this.waitQueueSize = waitQueueSize;
+        this.delayAmount = delayAmount;
+        this.numCalls = numCalls;
+        this.techQueueSize = techQueueSize;
+        notifyObservers();
+    }
     
-    public void register(Observer observer) {}
+    public void register(Observer observer) {
+        observers.add(observer);
+    }
     
-    public void remove(Observer observer) {}
+    public void remove(Observer observer) {
+        observers.remove(observers.indexOf(observer));
+    }
     
-    public void notifyObservers() {}
+    public void notifyObservers() {
+        if (observers != null) {
+            for (Observer observer : observers) {
+                observer.update();
+            }
+        }
+    }
     
     public void getData() {}
 }

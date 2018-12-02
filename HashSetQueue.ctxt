@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=HashSetQueue
+comment0.text=\n\ A\ generic\ Hash\ Set\ Queue\n\n\ @author\ Eric\ Boris\n\ @version\ 12/1/2018\n
+comment1.params=
+comment1.target=HashSetQueue()
+comment2.params=
+comment2.target=int\ size()
+comment3.params=
+comment3.target=boolean\ isEmpty()
+comment4.params=value
+comment4.target=boolean\ add(java.lang.Object)
+comment5.params=
+comment5.target=HashSetQueue.QueueNode\ remove()
+comment6.params=
+comment6.target=void\ clear()
+numComments=7
