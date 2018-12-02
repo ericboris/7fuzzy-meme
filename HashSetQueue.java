@@ -1,3 +1,5 @@
+import java.util.HashSet;
+
 /**
  * A generic Hash Set Queue
  *
@@ -5,10 +7,12 @@
  * @version 12/1/2018
  */
 public class HashSetQueue<E> {
-    private QueueNode<E> front;
+    private QueueNode<E> first;
     private int size;
+    private HashSet<E> hashSet;
     
     public HashSetQueue() {
+        hashSet = new HashSet<E>();
         clear();
     }
     
@@ -21,25 +25,35 @@ public class HashSetQueue<E> {
     }
     
     public boolean add(E value) {
-        QueueNode<E> current = front;
-        while(current.next != null) {
-            current = current.next;
+        if (hashSet.add(value)) {
+            QueueNode<E> current = first;
+            while(current.next != null) {
+                current = current.next;
+            }
+            current.next = new QueueNode<E>(value);
+            size++;
+            return true;
+        } else {
+            return false;
         }
-        current.next = new QueueNode<E>(value);
-        size++;
-        return true;
     }
     
     public QueueNode<E> remove() {
-        QueueNode<E> first = front.next;
-        front.next = first.next;
+        QueueNode<E> current = first.next;
+        first.next = current.next;
+        hashSet.remove(current.data);
         size--;
-        return first;
+        return current;
     }
     
     public void clear() {
-        this.front = new QueueNode<E>(null);
+        first = new QueueNode<E>(null);
+        hashSet.clear();
         size = 0;
+    }
+    
+    public QueueNode<E> peek() {
+        return first.next;
     }
     
     private class QueueNode<E> {
