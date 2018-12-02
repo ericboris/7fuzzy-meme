@@ -1,10 +1,14 @@
 #BlueJ class context
 comment0.target=Employee
 comment0.text=\n\ Create\ an\ employee\n\n\ @author\ Eric\ Boris\n\ @version\ 12/1/2018\n
-comment1.params=id\ firstName\ lastName\ userName\ dayOff
-comment1.target=Employee(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
-comment2.params=
-comment2.target=java.lang.String\ getDayOff()
+comment1.params=id\ firstName\ lastName
+comment1.target=Employee(java.lang.String,\ java.lang.String,\ java.lang.String)
+comment2.params=id\ firstName\ lastName\ userName\ dayOff
+comment2.target=Employee(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
 comment3.params=
-comment3.target=java.lang.String[]\ getData()
-numComments=4
+comment3.target=int\ getDayOff()
+comment4.params=dayOff
+comment4.target=java.lang.String\ dayOffToSchedule(int)
+comment5.params=
+comment5.target=java.lang.String[]\ getData()
+numComments=6

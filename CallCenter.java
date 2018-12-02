@@ -4,6 +4,8 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.awt.Graphics;
 
 /**
@@ -12,11 +14,10 @@ import java.awt.Graphics;
  * @author Eric Boris
  * @version 12/1/2018
  */
-public class CallCenter implements Subject{
+public class CallCenter {
     private ArrayList<Person> people;
     private ArrayList<Customer> customers;
     private ArrayList<Employee> employees;
-    private ArrayList<Observer> observers;
     
     private HashSetQueue<Customer> customerQueue;
     private HashSetQueue<Employee> employeeQueue;
@@ -37,8 +38,6 @@ public class CallCenter implements Subject{
         
         customerQueue = new HashSetQueue<Customer>();
         employeeQueue = new HashSetQueue<Employee>();
-        
-        observers = new ArrayList();
     }
     
     private void fillCustomersFromFile(File file) {
@@ -111,7 +110,7 @@ public class CallCenter implements Subject{
         fillEmployeeQueue(techDayOff);
         
         //notifyObservers();
-        draw(numCalls, delayAmount);
+        display(numCalls, delayAmount);
     }
     
     private void fillCustomerQueue(int queueSize) {
@@ -123,33 +122,16 @@ public class CallCenter implements Subject{
     
     private void fillEmployeeQueue(int techDayOff) {
         for (Employee employee : employees) {
-            if (Integer.parseInt(employee.getDayOff()) == techDayOff) {
+            if (employee.getDayOff() == techDayOff) {
                 employeeQueue.add(employee);
             }
         }
     }
     
-    public void register(Observer observer) {
-        observers.add(observer);
-    }
-    
-    public void remove(Observer observer) {
-        observers.remove(observers.indexOf(observer));
-    }
-    
-    public void notifyObservers() {
-        if (observers != null) {
-            for (Observer observer : observers) {
-                observer.update();
-            }
-        }
-    }
-    
-    public void getData() {}
-    
-    public void draw(int numCalls, int delayAmount) {
+    public void display(int numCalls, int delayAmount) { 
+        //Timer delayTimer = new Timer();
         for (int i = 0; i < numCalls; i++) {
-            System.out.println("Call #: " + (i + 1));x
+            System.out.println("Call #: " + (i + 1));
             Employee e = (Employee) employeeQueue.remove();
             for (String s : e.getData()) {
                 System.out.print(s + " ");

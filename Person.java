@@ -40,19 +40,6 @@ public class Person{
         }
         return lastName;
     }
-    
-    // public void setSchedule(int dayOff) {
-        // if (dayOff < 1 || dayOff > 7) {
-            // throw new IndexOutOfBoundsException("dayOff :" + dayOff);
-        // }
-        // setDayOff(dayOff);
-        // schedule = "";
-        // for (int dayNum = 1; dayNum <= 7; dayNum++) {
-            // if (dayNum != dayOff) {
-                // schedule += DayOfWeek.byNumber(dayNum);
-            // }
-        // }
-    // }
 
     public String[] getData() {
         return new String[] {id, firstName, lastName};

@@ -129,7 +129,7 @@ public class Settings extends JPanel {
 
     private void update() {
         callCenter.setData(waitSlider.getValue(), delaySlider.getValue(), 
-            callsSlider.getValue(), (Integer) dayList.getSelectedIndex() + 1);
+            callsSlider.getValue(), dayList.getSelectedIndex() + 1);
     }
 
     /**
