@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JSlider;
+import javax.swing.JComboBox;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.ChangeEvent;
 
@@ -32,6 +33,9 @@ public class Settings extends JPanel {
     private JLabel techLabel;
     private JSlider techSlider;
     private JLabel techCurrent;
+    private JLabel dayLabel;
+    private JComboBox dayList;
+    //private String dayOff;
     private JButton simButton;
 
     private static final String WAIT_LABEL = "Wait Queue";
@@ -46,6 +50,8 @@ public class Settings extends JPanel {
     private static final String TECHS_LABEL = "Techs Queue";
     private static final int TECHS_MAX = 40;
     private static final int TECHS_INIT = TECHS_MAX / 2;
+    private static final String DAYS_LABEL = "Tech Day Off";
+    private static final String[] DAYS_ARRAY = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
     private static final String SIM_LABEL = "Simulate!";    
 
     private static final Dimension INIT_DIM = new Dimension(310, 175);
@@ -100,7 +106,7 @@ public class Settings extends JPanel {
         this.add(callsSlider);
         this.add(callsCurrent);
 
-        // tech to make settings
+        // tech settings
         techLabel = new JLabel(TECHS_LABEL, JLabel.CENTER);
         techSlider = new JSlider(JSlider.HORIZONTAL, 0, TECHS_MAX, TECHS_INIT);
         techSlider.addChangeListener(new ChangeListener() {
@@ -114,6 +120,18 @@ public class Settings extends JPanel {
         this.add(techSlider);
         this.add(techCurrent);
 
+        // day off settings
+        dayLabel = new JLabel(DAYS_LABEL, JLabel.CENTER);
+        dayList = new JComboBox(DAYS_ARRAY);
+        // dayList.addActionListener (new ActionListener () {
+                // public void actionPerformed(ActionEvent e) {
+                    // dayOff = (String) dayList.getSelectedItem();
+                // }
+            // });
+        this.add(dayLabel);
+        this.add(dayList);
+        
+        // simulation button
         simButton = new JButton(SIM_LABEL);
         simButton.addActionListener(new ActionListener() {
                 @Override
@@ -134,7 +152,8 @@ public class Settings extends JPanel {
 
     private void update() {
         callCenter.setData(waitSlider.getValue(), delaySlider.getValue(), 
-                           callsSlider.getValue(), techSlider.getValue());
+            callsSlider.getValue(), techSlider.getValue(), 
+            (Integer) dayList.getSelectedIndex() + 1);
     }
 
     /**

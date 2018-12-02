@@ -5,16 +5,20 @@
  * @version 12/1/2018
  */
 public class Customer extends Person {
-    public void setData(String id, String firstName, String lastName, String phone, String email) {
-        setId(id);
-        setFirstName(firstName);
-        setLastName(lastName);
-        setPhone(phone);
-        setEmail(email);
+    private String phone;
+    private String email;
+    
+    public Customer(String id, String firstName, String lastName, String phone, String email) {
+        super(id, firstName, lastName);
+        if (phone == null || email == null) {
+            throw new IllegalArgumentException("Argument must not be null");
+        }
+        this.phone = phone;
+        this.email = email;
     }
     
     @Override
     public String[] getData() {
-        return new String[] {getId(), getFirstName(), getLastName(), getEmail(), getPhone()};
+        return new String[] {getId(), getFirstName(), getLastName(), phone, email};
     }
 }
