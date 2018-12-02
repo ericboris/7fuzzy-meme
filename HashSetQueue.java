@@ -38,12 +38,12 @@ public class HashSetQueue<E> {
         }
     }
     
-    public QueueNode<E> remove() {
+    public E remove() {
         QueueNode<E> current = first.next;
         first.next = current.next;
         hashSet.remove(current.data);
         size--;
-        return current;
+        return current.data;
     }
     
     public void clear() {

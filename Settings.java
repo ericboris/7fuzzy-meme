@@ -30,12 +30,8 @@ public class Settings extends JPanel {
     private JLabel callsLabel;
     private JSlider callsSlider;
     private JLabel callsCurrent;
-    private JLabel techLabel;
-    private JSlider techSlider;
-    private JLabel techCurrent;
     private JLabel dayLabel;
     private JComboBox dayList;
-    //private String dayOff;
     private JButton simButton;
 
     private static final String WAIT_LABEL = "Wait Queue";
@@ -54,7 +50,7 @@ public class Settings extends JPanel {
     private static final String[] DAYS_ARRAY = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
     private static final String SIM_LABEL = "Simulate!";    
 
-    private static final Dimension INIT_DIM = new Dimension(310, 175);
+    private static final Dimension INIT_DIM = new Dimension(310, 145);
 
     public Settings(CallCenter callCenter){
         if (callCenter == null) {
@@ -106,28 +102,9 @@ public class Settings extends JPanel {
         this.add(callsSlider);
         this.add(callsCurrent);
 
-        // tech settings
-        techLabel = new JLabel(TECHS_LABEL, JLabel.CENTER);
-        techSlider = new JSlider(JSlider.HORIZONTAL, 0, TECHS_MAX, TECHS_INIT);
-        techSlider.addChangeListener(new ChangeListener() {
-                @Override
-                public void stateChanged(ChangeEvent e) {
-                    techCurrent.setText(String.valueOf(techSlider.getValue()));
-                }
-            });
-        techCurrent = new JLabel(String.valueOf(TECHS_INIT), JLabel.CENTER);
-        this.add(techLabel);
-        this.add(techSlider);
-        this.add(techCurrent);
-
         // day off settings
         dayLabel = new JLabel(DAYS_LABEL, JLabel.CENTER);
         dayList = new JComboBox(DAYS_ARRAY);
-        // dayList.addActionListener (new ActionListener () {
-                // public void actionPerformed(ActionEvent e) {
-                    // dayOff = (String) dayList.getSelectedItem();
-                // }
-            // });
         this.add(dayLabel);
         this.add(dayList);
         
@@ -152,8 +129,7 @@ public class Settings extends JPanel {
 
     private void update() {
         callCenter.setData(waitSlider.getValue(), delaySlider.getValue(), 
-            callsSlider.getValue(), techSlider.getValue(), 
-            (Integer) dayList.getSelectedIndex() + 1);
+            callsSlider.getValue(), (Integer) dayList.getSelectedIndex() + 1);
     }
 
     /**

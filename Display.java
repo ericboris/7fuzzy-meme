@@ -58,9 +58,7 @@ public class Display extends JPanel implements Observer {
     // @Override 
     // protected void paintComponent(Graphics g) {
         // super.paintComponent(g);
-        // for (Drawable element : elements) {
-            // element.draw(g);
-        // }
+        // subject.draw(g);
     // }
 
     /**

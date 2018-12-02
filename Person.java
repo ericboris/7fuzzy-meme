@@ -6,7 +6,7 @@ import java.awt.Graphics;
  * @author Eric Boris
  * @version 12/1/2018
  */
-public class Person implements Drawable{
+public class Person{
     private String id;
     private String firstName;
     private String lastName;
@@ -56,9 +56,5 @@ public class Person implements Drawable{
 
     public String[] getData() {
         return new String[] {id, firstName, lastName};
-    }
-
-    public void draw(Graphics g) {
-
     }
 }

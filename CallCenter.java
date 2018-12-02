@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Random;
+import java.awt.Graphics;
 
 /**
  * Generate call center data
@@ -23,7 +24,6 @@ public class CallCenter implements Subject{
     private int waitQueueSize;
     private int delayAmount;
     private int numCalls;
-    private int techQueueSize;
     private int techDayOff;
     
     public CallCenter(File customerFile, File employeeFile) {
@@ -99,19 +99,19 @@ public class CallCenter implements Subject{
         }
     }
     
-    public void setData(int waitQueueSize, int delayAmount, int numCalls, int techQueueSize, int techDayOff) {
+    public void setData(int waitQueueSize, int delayAmount, int numCalls, int techDayOff) {
         this.waitQueueSize = waitQueueSize;
         this.delayAmount = delayAmount;
         this.numCalls = numCalls;
-        this.techQueueSize = techQueueSize;
         this.techDayOff = techDayOff;
         
         customerQueue.clear();
         employeeQueue.clear();
         fillCustomerQueue(waitQueueSize);
-        fillEmployeeQueue(techQueueSize);
+        fillEmployeeQueue(techDayOff);
         
-        notifyObservers();
+        //notifyObservers();
+        draw(numCalls, delayAmount);
     }
     
     private void fillCustomerQueue(int queueSize) {
@@ -121,10 +121,11 @@ public class CallCenter implements Subject{
         }
     }
     
-    private void fillEmployeeQueue(int queueSize) {
-        Random rand = new Random();
-        while (employeeQueue.size() < queueSize) {
-            employeeQueue.add(employees.get(rand.nextInt(employees.size())));
+    private void fillEmployeeQueue(int techDayOff) {
+        for (Employee employee : employees) {
+            if (Integer.parseInt(employee.getDayOff()) == techDayOff) {
+                employeeQueue.add(employee);
+            }
         }
     }
     
@@ -145,4 +146,22 @@ public class CallCenter implements Subject{
     }
     
     public void getData() {}
+    
+    public void draw(int numCalls, int delayAmount) {
+        for (int i = 0; i < numCalls; i++) {
+            System.out.println("Call #: " + (i + 1));x
+            Employee e = (Employee) employeeQueue.remove();
+            for (String s : e.getData()) {
+                System.out.print(s + " ");
+            } 
+            System.out.println("");
+            employeeQueue.add(e);
+            Customer c = (Customer) customerQueue.remove();
+            for (String s : c.getData()) {
+                System.out.print(s + " ");
+            }
+            System.out.println("\n");
+            fillCustomerQueue(waitQueueSize);
+        }
+    }
 }

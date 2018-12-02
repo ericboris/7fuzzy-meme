@@ -17,6 +17,10 @@ public class Employee extends Person {
         this.dayOff = dayOff;
     }
     
+    public String getDayOff() {
+        return dayOff;
+    }
+    
     @Override
     public String[] getData() {
         return new String[] {getId(), getFirstName(), getLastName(), userName, dayOff};
