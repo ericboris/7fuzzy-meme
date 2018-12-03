@@ -1,10 +1,13 @@
 #BlueJ class context
 comment0.target=Customer
-comment0.text=\n\ Create\ an\ customer\n\n\ @author\ Eric\ Boris\n\ @version\ 12/1/2018\n
+comment0.text=\n\ Create\ a\ customer\n\n\ @author\ Eric\ Boris\n\ @version\ 12/1/2018\n
 comment1.params=id\ firstName\ lastName
 comment1.target=Customer(java.lang.String,\ java.lang.String,\ java.lang.String)
+comment1.text=\n\ Create\ a\ basic\ customer\ \n\ \n\ @param\ \ \ id\ \ \ \ \ \ \ \ \ \ \ \ \ \ the\ customer\ id\ number\n\ @param\ \ \ firstName\ \ \ \ \ \ \ the\ customer\ first\ name\n\ @param\ \ \ lastName\ \ \ \ \ \ \ \ the\ customer\ last\ name\n
 comment2.params=id\ firstName\ lastName\ phone\ email
 comment2.target=Customer(java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String,\ java.lang.String)
+comment2.text=\n\ Create\ a\ customer\ \n\ \n\ @param\ \ \ id\ \ \ \ \ \ \ \ \ \ \ \ \ \ the\ customer\ id\ number\n\ @param\ \ \ firstName\ \ \ \ \ \ \ the\ customer\ first\ name\n\ @param\ \ \ lastName\ \ \ \ \ \ \ \ the\ customer\ last\ name\n\ @param\ \ \ phone\ \ \ \ \ \ \ \ \ \ \ the\ customer\ phone\ number\n\ @param\ \ \ email\ \ \ \ \ \ \ \ \ \ \ the\ customer\ email\n
 comment3.params=
 comment3.target=java.lang.String[]\ getData()
+comment3.text=\n\ get\ this\ customer's\ data\n\ \n\ @return\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ a\ string\ array\ of\ customer\ data\n
 numComments=4

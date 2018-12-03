@@ -19,39 +19,67 @@ import javax.swing.event.ChangeEvent;
  * @version 12/1/2018
  */
 public class Settings extends JPanel {
+    /** callCenter                  the call center this panel modifies */
     CallCenter callCenter;
 
+    /** waitLabel                   the label for the wait slider */
     private JLabel waitLabel;
+    /** waitSlider                  the slider for number of waiting customers */
     private JSlider waitSlider;
+    /** waitCurrent                 the number of waiting customers to simulate */
     private JLabel waitCurrent;
+    /** delayLabel                  the label for the delay slider */
     private JLabel delayLabel;
+    /** delaySlider                 the slider for the amount of dely */
     private JSlider delaySlider;
+    /** delayCurrent                the amount of delay between calls to simulate */
     private JLabel delayCurrent;
+    /** callsLabel                  the label for the calls slider */
     private JLabel callsLabel;
+    /** callsSlider                 the slider for the number of calls to take */
     private JSlider callsSlider;
+    /** callsCurrent                the number of calls to simulate */
     private JLabel callsCurrent;
+    /** dayLabel                    the label for the day off dropdown */
     private JLabel dayLabel;
+    /** dayList                     the list of possible days off */
     private JComboBox dayList;
+    /** simButton                   run the simulation */
     private JButton simButton;
 
+    /** WAIT_LABEL                  the wait label text */
     private static final String WAIT_LABEL = "Wait Queue";
+    /** WAIT_MAX                    the max size of the wait queue */
     private static final int WAIT_MAX = 40;
+    /** WAIT_INIT                   the initial value of the wait slider */
     private static final int WAIT_INIT = WAIT_MAX / 2;
+    /** DELAY_LABEL                 the delay label text */
     private static final String DELAY_LABEL = "Delay Amount";
-    private static final int DELAY_MAX = 4;
+    /** DELAY_MAX                   the max amount of delay time */
+    private static final int DELAY_MAX = 5;
+    /** DELAY_INIT                  the initial value of the delay slider */
     private static final int DELAY_INIT = DELAY_MAX / 2;
+    /** CALLS_LABEL                 the calls label text */
     private static final String CALLS_LABEL = "Calls to Take";
+    /** CALLS_MAX                   the max number of calls to take */
     private static final int CALLS_MAX = 40;
+    /** CALLS_INIT                  the initial value of the calls slider */
     private static final int CALLS_INIT = CALLS_MAX / 2;
-    private static final String TECHS_LABEL = "Techs Queue";
-    private static final int TECHS_MAX = 40;
-    private static final int TECHS_INIT = TECHS_MAX / 2;
-    private static final String DAYS_LABEL = "Tech Day Off";
+    /** DAYS_LABEL                  the days label text */
+    private static final String DAYS_LABEL = "Employee Day Off";
+    /** DAYS_ARRAY                  the options for the days off dropdown */
     private static final String[] DAYS_ARRAY = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
+    /** SIM_LABEL                   the text for the simulation run button */
     private static final String SIM_LABEL = "Simulate!";    
 
-    private static final Dimension INIT_DIM = new Dimension(310, 145);
+    /** INIT_DIM                    the default dimensions for the window */
+    private static final Dimension INIT_DIM = new Dimension(310, 175);
 
+    /**
+     * create a settings window
+     * 
+     * @param   callCenter          the callCenter this window modifies
+     */
     public Settings(CallCenter callCenter){
         if (callCenter == null) {
             throw new IllegalArgumentException("Argument must not be null");
@@ -62,7 +90,7 @@ public class Settings extends JPanel {
 
         // wait list settings
         waitLabel = new JLabel(WAIT_LABEL, JLabel.CENTER);
-        waitSlider = new JSlider(JSlider.HORIZONTAL, 0, WAIT_MAX, WAIT_INIT);
+        waitSlider = new JSlider(JSlider.HORIZONTAL, 1, WAIT_MAX, WAIT_INIT);
         waitSlider.addChangeListener(new ChangeListener() {
                 @Override
                 public void stateChanged(ChangeEvent e) {
@@ -76,7 +104,7 @@ public class Settings extends JPanel {
 
         // delay list settings
         delayLabel = new JLabel(DELAY_LABEL, JLabel.CENTER);
-        delaySlider = new JSlider(JSlider.HORIZONTAL, 0, DELAY_MAX, DELAY_INIT);
+        delaySlider = new JSlider(JSlider.HORIZONTAL, 1, DELAY_MAX, DELAY_INIT);
         delaySlider.addChangeListener(new ChangeListener() {
                 @Override
                 public void stateChanged(ChangeEvent e) {
@@ -90,7 +118,7 @@ public class Settings extends JPanel {
 
         // calls to make settings
         callsLabel = new JLabel(CALLS_LABEL, JLabel.CENTER);
-        callsSlider = new JSlider(JSlider.HORIZONTAL, 0, CALLS_MAX, CALLS_INIT);
+        callsSlider = new JSlider(JSlider.HORIZONTAL, 1, CALLS_MAX, CALLS_INIT);
         callsSlider.addChangeListener(new ChangeListener() {
                 @Override
                 public void stateChanged(ChangeEvent e) {
@@ -107,7 +135,7 @@ public class Settings extends JPanel {
         dayList = new JComboBox(DAYS_ARRAY);
         this.add(dayLabel);
         this.add(dayList);
-        
+
         // simulation button
         simButton = new JButton(SIM_LABEL);
         simButton.addActionListener(new ActionListener() {
@@ -127,6 +155,9 @@ public class Settings extends JPanel {
         sf.setResizable(false);
     }
 
+    /**
+     * notify the call center of updates
+     */
     private void update() {
         callCenter.setData(waitSlider.getValue(), delaySlider.getValue(), 
             callsSlider.getValue(), dayList.getSelectedIndex() + 1);
