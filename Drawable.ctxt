@@ -1,7 +1,0 @@
-#BlueJ class context
-comment0.target=Drawable
-comment0.text=\n\ Create\ a\ drawable\ interface\n\n\ @author\ Eric\ Boris\n\ @version\ 12/1/2018\n
-comment1.params=g
-comment1.target=void\ draw(java.awt.Graphics)
-comment1.text=\n\ draw\ the\ element\n\ \n\ @param\ \ \ g\ \ \ \ \ \ \ \ \ \ \ the\ graphics\ object\ to\ draw\ on\n
-numComments=2
