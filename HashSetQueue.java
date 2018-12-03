@@ -88,8 +88,8 @@ public class HashSetQueue<E> {
      * 
      * @return                  the next value in the queue
      */
-    public QueueNode<E> peek() {
-        return first.next;
+    public E peek() {
+        return first.next.data;
     }
     
     /**
