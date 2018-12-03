@@ -5,12 +5,19 @@
  * @version 12/1/2018
  */
 public enum DayOfWeek {
+    /** MONDAY */
     MONDAY(1, "Mon"), 
+    /** TUESDAY */
     TUESDAY(2, "Tue"), 
+    /** WEDNESDAY */
     WEDNESDAY(3, "Wed"), 
+    /** THURSDAY */
     THURSDAY(4, "Thu"), 
+    /** FRIDAY */
     FRIDAY(5, "Fri"), 
+    /** SATURDAY */
     SATURDAY(6, "Sat"), 
+    /** SUNDAY */
     SUNDAY(7, "Sun");
     
     /** dayNumber               the number of the day of the week */
@@ -41,7 +48,7 @@ public enum DayOfWeek {
     /**
      * get the day of the week name by day of the week number
      * 
-     * @param   dayNum          the day of the week to get
+     * @param   dayNumber          the day of the week to get
      * @return                  the day of the week
      */
     public static DayOfWeek byNumber(int dayNumber) {

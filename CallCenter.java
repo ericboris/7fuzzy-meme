@@ -49,8 +49,8 @@ public class CallCenter {
         if (customerFile == null || employeeFile == null) {
             throw new IllegalArgumentException("Argument must not be null");
         }
-        customers = new ArrayList();
-        employees = new ArrayList();
+        customers = new ArrayList<Customer>();
+        employees = new ArrayList<Employee>();
         fillCustomersFromFile(customerFile);
         fillEmployeesFromFile(employeeFile);
 

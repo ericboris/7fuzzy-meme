@@ -132,7 +132,7 @@ public class Settings extends JPanel {
 
         // day off settings
         dayLabel = new JLabel(DAYS_LABEL, JLabel.CENTER);
-        dayList = new JComboBox(DAYS_ARRAY);
+        dayList = new JComboBox<String>(DAYS_ARRAY);
         this.add(dayLabel);
         this.add(dayList);
 
